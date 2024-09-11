@@ -1,6 +1,6 @@
 import { separate } from './separate';
 
-describe('1_separate', () => {
+describe('separate', () => {
     it('length is odd', () => {
         expect(separate('abcde')).toEqual(['abc', 'de']);
     });
