@@ -12,3 +12,11 @@ export function separateTwoMergedSHA512Text_4(str: string): string[] {
     if (strs.length !== 4) throw new Error('Split Error');
     return strs;
 }
+
+export function separateTwoMergedSHA512Text_8(str: string): string[] {
+    if (!TwoMergedSHA512TextReg.test(str)) throw new Error('invalid two merged SHA512 text');
+    /* v8 ignore next 2 */
+    const strs = str.match(/.{1,32}/g) || [];
+    if (strs.length !== 8) throw new Error('Split Error');
+    return strs;
+}
