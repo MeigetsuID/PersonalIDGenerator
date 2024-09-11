@@ -5,7 +5,7 @@ export function separate(str: string): string[] {
 
 const TwoMergedSHA512TextReg = /^([0-9a-f]|[0-9A-F]){256}$/;
 
-export function separateTwoMergedSHA512Text(str: string): string[] {
+export function separateTwoMergedSHA512Text_4(str: string): string[] {
     if (!TwoMergedSHA512TextReg.test(str)) throw new Error('invalid two merged SHA512 text');
     /* v8 ignore next 2 */
     const strs = str.match(/.{1,64}/g) || [];
