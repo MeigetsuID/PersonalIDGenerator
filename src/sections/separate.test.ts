@@ -1,4 +1,4 @@
-import { separate } from './1_separate';
+import { separate } from './separate';
 
 describe('1_separate', () => {
     it('length is odd', () => {
