@@ -1,5 +1,5 @@
 import {
-    separate,
+    separateId,
     separateTwoMergedSHA512Text_4,
     separateTwoMergedSHA512Text_8,
     separateTwoMergedSHA512Text_16,
@@ -7,10 +7,10 @@ import {
 
 describe('separate', () => {
     it('length is odd', () => {
-        expect(separate('abcde')).toStrictEqual(['abc', 'de']);
+        expect(separateId('abcde')).toStrictEqual(['abc', 'de']);
     });
     it('length is even', () => {
-        expect(separate('abcd')).toStrictEqual(['ab', 'cd']);
+        expect(separateId('abcd')).toStrictEqual(['ab', 'cd']);
     });
 });
 
