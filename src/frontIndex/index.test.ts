@@ -1,4 +1,4 @@
-import { GetIDFrontIndex } from ".";
+import { GetIDFrontIndex } from '.';
 
 test('GetIDFrontIndex', () => {
     const testValues = [
