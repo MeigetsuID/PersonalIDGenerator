@@ -34,7 +34,7 @@
   "dependencies": {
     "@meigetsusoft/hash": "^1.0.0-patch01",
     "async-lock": "^1.4.1",
-    "nodeeasyfileio": "^1.0.3"
+    "nodeeasyfileio": "^1.0.4-patch01"
   },
   "devDependencies": {
     "@types/async-lock": "^1.4.2",
