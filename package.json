@@ -12,7 +12,9 @@
     "eslint:fix": "eslint --cache --ext .js,.ts . --fix",
     "coverage": "jest --coverage",
     "test": "jest",
-    "prepack": "tsc --project tsconfig.release.json"
+    "build": "tsc",
+    "postbuild": "node ./add-js-extension.js dist/",
+    "prepack": "npm run build -- --project tsconfig.release.json"
   },
   "repository": {
     "type": "git",
