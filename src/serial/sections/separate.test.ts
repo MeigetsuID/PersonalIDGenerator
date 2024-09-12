@@ -3,6 +3,7 @@ import {
     separateTwoMergedSHA512Text_4,
     separateTwoMergedSHA512Text_8,
     separateTwoMergedSHA512Text_16,
+    separateNumTextToMax4Digit
 } from './separate';
 
 describe('separate', () => {
@@ -68,5 +69,17 @@ describe('separateTwoMergedSHA512Text_16', () => {
     });
     it('invalid/character error', () => {
         expect(() => separateTwoMergedSHA512Text_16('g'.repeat(256))).toThrow('invalid two merged SHA512 text');
+    });
+});
+
+describe('separateNumTextToMax4Digit', () => {
+    it('valid 1', () => {
+        expect(separateNumTextToMax4Digit('12345678901234567890')).toStrictEqual(['1234', '5678', '9012', '3456', '7890']);
+    });
+    it('valid 2', () => {
+        expect(separateNumTextToMax4Digit('1234567890123456789')).toStrictEqual(['1234', '5678', '9012', '3456', '789']);
+    });
+    it('invalid/character error', () => {
+        expect(() => separateNumTextToMax4Digit('12345678901234567g90')).toThrow('invalid number text');
     });
 });

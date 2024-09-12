@@ -28,3 +28,11 @@ export function separateTwoMergedSHA512Text_16(str: string): string[] {
     if (strs.length !== 16) throw new Error('Split Error');
     return strs;
 }
+
+const numTextPattern = /^\d+$/;
+
+export function separateNumTextToMax4Digit(numStr: string): string[] {
+    if (!numTextPattern.test(numStr)) throw new Error('invalid number text');
+    /* v8 ignore next */
+    return numStr.match(/.{1,4}/g) || [];
+}
