@@ -1,4 +1,4 @@
-import { m10w4Total } from "./modulus";
+import { m10w4Total } from './modulus';
 
 describe('m10w4Total', () => {
     it('valid', () => {

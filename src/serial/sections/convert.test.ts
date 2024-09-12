@@ -1,4 +1,4 @@
-import { convertHexadecimals } from "./convert";
+import { convertHexadecimals } from './convert';
 
 describe('convertHexadecimals', () => {
     it('valid/lower', () => {
