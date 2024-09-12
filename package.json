@@ -49,6 +49,7 @@
     "typescript": "^5.6.2"
   },
   "dependencies": {
-    "@meigetsusoft/hash": "^1.0.0-patch01"
+    "@meigetsusoft/hash": "^1.0.0-patch01",
+    "nodeeasyfileio": "^1.0.3"
   }
 }
