@@ -1,20 +1,18 @@
-import { calcMagicNumber } from ".";
+import { calcMagicNumber } from '.';
 
 const m10w3CheckDigit = (input: string): number => {
     const m10w3Total = [...input]
-        .map((x) => parseInt(x))
+        .map(x => parseInt(x))
         .reverse()
         .reduce((acc, cur, idx) => acc + cur * (3 - Number(idx % 2 === 1) * 2), 0);
-    return m10w3Total % 10 === 0
-        ? 0
-        : (10 - (m10w3Total % 10));
+    return m10w3Total % 10 === 0 ? 0 : 10 - (m10w3Total % 10);
 };
 
 describe('Test Function Check', () => {
     it('check digit is 0', () => {
         expect(m10w3CheckDigit('20151119')).toBe(0);
     });
-    it ('check digit is not 0', () => {
+    it('check digit is not 0', () => {
         expect(m10w3CheckDigit('20151129')).toBe(9);
     });
 });

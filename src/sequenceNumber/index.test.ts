@@ -1,5 +1,5 @@
-import { existsSync, unlinkSync } from "node:fs";
-import { GetIDSequenceNumber } from ".";
+import { existsSync, unlinkSync } from 'node:fs';
+import { GetIDSequenceNumber } from '.';
 
 describe('GetIDSequenceNumber', () => {
     beforeAll(() => {
