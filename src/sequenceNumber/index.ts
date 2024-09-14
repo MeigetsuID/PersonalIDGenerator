@@ -11,7 +11,11 @@ export type SequenceNumberTable = {
     [index: string]: SerialIndexTable;
 };
 
-export function GetIDSequenceNumber(frontIndex: number, serial: number, sequenceNumberCacheFile?: string): Promise<number> {
+export function GetIDSequenceNumber(
+    frontIndex: number,
+    serial: number,
+    sequenceNumberCacheFile?: string
+): Promise<number> {
     if (!sequenceNumberCacheFile) return GetIDSequenceNumber(frontIndex, serial, './system/sqn.dat');
     const FrontIndexText = frontIndex.toString().padStart(2, '0');
     const SerialText = serial.toString().padStart(3, '0');
