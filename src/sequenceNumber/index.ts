@@ -11,17 +11,18 @@ export type SequenceNumberTable = {
     [index: string]: SerialIndexTable;
 };
 
-export function GetIDSequenceNumber(frontIndex: number, serial: number): Promise<number> {
+export function GetIDSequenceNumber(frontIndex: number, serial: number, sequenceNumberCacheFile?: string): Promise<number> {
+    if (!sequenceNumberCacheFile) return GetIDSequenceNumber(frontIndex, serial, './system/sqn.dat');
     const FrontIndexText = frontIndex.toString().padStart(2, '0');
     const SerialText = serial.toString().padStart(3, '0');
     return lock.acquire('sequenceNumber', () => {
-        const sequenceNumberTable = existsSync('./system/sqn.dat')
-            ? readJson<SequenceNumberTable>('./system/sqn.dat')
+        const sequenceNumberTable = existsSync(sequenceNumberCacheFile)
+            ? readJson<SequenceNumberTable>(sequenceNumberCacheFile)
             : {};
         if (!sequenceNumberTable[FrontIndexText]) sequenceNumberTable[FrontIndexText] = {};
         if (!sequenceNumberTable[FrontIndexText][SerialText]) sequenceNumberTable[FrontIndexText][SerialText] = 0;
         const Ret = sequenceNumberTable[FrontIndexText][SerialText]++;
-        writeJson('./system/sqn.dat', sequenceNumberTable, true);
+        writeJson(sequenceNumberCacheFile, sequenceNumberTable, true);
         return Ret;
     });
 }
