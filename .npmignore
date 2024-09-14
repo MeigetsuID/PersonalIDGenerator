@@ -132,6 +132,7 @@ migrations/
 system/**/*.dat
 
 # Unused files
+.github/
 Docker/
 coverage/
 src/
@@ -145,4 +146,4 @@ ForTest/
 !*.d.ts
 tsconfig*json
 *.js.map
-add-js-extensions.js
+add-js-extension.js
