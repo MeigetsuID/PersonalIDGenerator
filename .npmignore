@@ -145,3 +145,4 @@ ForTest/
 !*.d.ts
 tsconfig*json
 *.js.map
+add-js-extensions.js
