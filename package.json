@@ -1,8 +1,15 @@
 {
   "name": "@meigetsuid/idgenerator",
   "version": "2.1.0",
-  "main": "dist/index.js",
   "type": "module",
+  "main": "dist/cjs/index.js",
+  "types": "dist/@types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
   "engines": {
     "node": ">=21.0.0"
   },
@@ -14,7 +21,11 @@
     "test": "jest",
     "build": "tsc",
     "postbuild": "node ./add-js-extension.js dist/",
-    "prepack": "npm run build -- --project tsconfig.release.json"
+    "build:release": "run-p build:release:*",
+    "build:release:cjs": "tsc -p tsconfig.cjs.json",
+    "build:release:esm": "tsc -p tsconfig.esm.json",
+    "postbuild:release:esm": "node ./add-js-extension.js dist/esm/",
+    "prepack": "run-s build:release"
   },
   "repository": {
     "type": "git",
