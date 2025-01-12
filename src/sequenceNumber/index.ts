@@ -1,4 +1,4 @@
-import { readJson, writeJson } from 'nodeeasyfileio';
+import { OverwriteMode, readJson, writeJson } from 'nodeeasyfileio';
 import AsyncLock from 'async-lock';
 import { existsSync } from 'node:fs';
 const lock = new AsyncLock();
@@ -26,7 +26,7 @@ export function GetIDSequenceNumber(
         if (!sequenceNumberTable[FrontIndexText]) sequenceNumberTable[FrontIndexText] = {};
         if (!sequenceNumberTable[FrontIndexText][SerialText]) sequenceNumberTable[FrontIndexText][SerialText] = 0;
         const Ret = sequenceNumberTable[FrontIndexText][SerialText]++;
-        writeJson(sequenceNumberCacheFile, sequenceNumberTable, true);
+        writeJson(sequenceNumberCacheFile, sequenceNumberTable, OverwriteMode.Replace);
         return Ret;
     });
 }

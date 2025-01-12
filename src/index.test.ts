@@ -1,11 +1,11 @@
-import { writeJson } from 'nodeeasyfileio';
+import { OverwriteMode, writeJson } from 'nodeeasyfileio';
 import CreateID from '.';
 import { unlinkSync, existsSync } from 'node:fs';
 
 describe('CreateID', () => {
     beforeAll(() => {
         if (existsSync('./system/sqn_nofile.dat')) unlinkSync('./system/sqn_nofile.dat');
-        writeJson('./system/sqn_withfile.dat', { '70': { '455': 24 } }, true);
+        writeJson('./system/sqn_withfile.dat', { '70': { '455': 24 } }, OverwriteMode.Replace);
     });
 
     afterAll(() => {
